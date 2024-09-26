@@ -1,0 +1,113 @@
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.work-wrap {
+    width: 100vw;
+    height: auto;
+    padding: 10px 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    padding: 10px 5%;
+}
+
+.title-project {
+    font-size: 25px;
+    color: aliceblue; /* Cyan text color */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for glass effect */
+    backdrop-filter: blur(5px); /* Blur effect to create glassy look */
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 100px #00ffff; /* Adds depth with a subtle shadow */
+    display: inline-block;
+}
+
+.title-skill{
+    font-size: 25px;
+    color:aliceblue; /* Cyan text color */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for glass effect */
+    backdrop-filter: blur(5px); /* Blur effect to create glassy look */
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 100px #00ffff; /* Adds depth with a subtle shadow */
+    display: inline-block;
+}
+
+
+.body {
+    width: 100%;
+    height: 100%;
+    padding: 10px 10%;
+}
+
+.project-card-view {
+    display: flex;
+    padding: 10px 5%;
+    color: aliceblue;
+    align-items: center; /* Center the cards vertically */
+    justify-content: center; /* Center the cards horizontally */
+}
+
+.flex-grid-thirds {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for responsive behavior */
+    justify-content: center; /* Center cards in the grid */
+    gap: 20px; /* Space between cards */
+}
+
+.flex-grid-thirds .col {
+    display: flex;
+    justify-content: center; /* Center the card inside the column */
+    align-items: center; /* Center the card vertically */
+    flex: 1 1 calc(33.333% - 20px); 
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+    border: 2px solid #0b0c10;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%; /* Make card take up the full width of the column */
+}
+
+.card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: cyan; /* Border lights up */
+}
+
+.content {
+    color: #f5f5dc; /* Beige color */
+    transform: translateZ(75px); /* Maintain the 3D effect */
+}
+.skill-wrap{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .flex-grid-thirds .col {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-grid-thirds .col {
+        flex: 1 1 100%; 
+    }
+}

@@ -1,0 +1,105 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent;
+  }
+  
+  .card {
+    width: 300px;
+    height: 450px;
+    background-color: transparent;
+    padding: 20px;
+    align-items: flex-start;
+    border-radius: 10px;
+    display: flex-start;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid silver;
+  }
+
+  
+  .content {
+    text-align: center;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #050505;
+    color: #0b0c10;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #000000;
+  }
+  
+  .photo-cred {
+    margin-top: 20px;
+    color: #0b0c10;
+  }
+  
+  .photo-cred a {
+    color: #0b0c10;
+    text-decoration: none;
+  }
+  .card:hover {
+    transform: rotateY(-10deg);
+    border-color: #00ffff;
+    box-shadow: 0px 10px 20px #00ffff
+  }
+  .project-image {
+    width: 100%; /* Makes the image responsive to the width of its container */
+    height: auto; /* Ensures the image maintains its aspect ratio */
+    max-height: 200px; /* Optional: Sets a maximum height to control image size */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    object-fit: cover; /* Ensures the image covers the entire container without distortion */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+    margin-bottom: 10px; /* Adds spacing between the image and the following text */
+    transition: transform 0.3s ease; /* Adds a smooth transition for hover effects */
+  }
+  
+  .project-image:hover {
+    transform: scale(1.05); /* Slightly zooms in the image on hover for a nice effect */
+  }
+/* Container for the list */
+.technologies-list {
+  display: flex; /* Align items in a single row */
+  justify-content: center; /* Center the list items horizontally */
+  align-items: end;
+  flex-wrap: wrap; /* Allow items to wrap if the screen is too narrow */
+  padding: 0;
+  list-style-type: none; /* Remove default bullet points */
+  gap: 10px; /* Space between each technology */
+  
+}
+
+/* Each individual technology item */
+.technology-item {
+  background-color: #333;
+  color: #00ffff; /* Light text color */
+  padding: 2px 5px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners for each box */
+  font-size: 10px; /* Smaller text size */
+  box-shadow: 0 2px 5px rgba(69, 68, 68, 0.2); /* Optional: Adds depth with shadow */
+  text-transform: uppercase; /* Optional: Makes text uppercase */
+  white-space: nowrap; /* Ensures the text doesn’t wrap inside the box */
+}
+.project-name{
+  color: white;
+  font-family: sans-serif;
+  font-weight: 6px;
+  font-size: 20px;
+}
+.project-des{
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 2px;
+  color: white;
+}

@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  .container{
+    width: 100vw;
+    min-height: 100vh;
+    background: #0b0c10;
+  }
+  
+  .introduction{
+    width: 100vw;
+    min-height: 100vh;
+    /*background: linear-gradient(#0b0c10 30%,#f5f5dc 70%);*/
+    background: #0b0c10;
+  }
+  .projects{
+    width: 100vw;
+    min-height: 100vh;
+    /*background: linear-gradient(#0b0c10 30%,#f5f5dc 70%);*/
+    background: #0b0c10;
+  
+  }
+  .skills{
+    width: 100vw;
+    /*background: linear-gradient(#0b0c10 30%,#f5f5dc 70%);*/
+    background: #0b0c10;
+    min-height: 100vh;
+  }
+  .contact{
+    width: 100vw;
+    min-height: 100vh;
+    /*background: linear-gradient(#0b0c10 30%,#f5f5dc 70%);*/
+    background: #0b0c10;
+  }
+  
+  .model-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  
+  
+  @media (max-width: 500px) {
+    .model-container {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80vw;
+      height: 40vh;
+    }
+  }
+  
