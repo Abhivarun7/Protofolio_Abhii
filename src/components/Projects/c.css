@@ -70,15 +70,16 @@
   }
 /* Container for the list */
 .technologies-list {
+  position: relative;
+  bottom: 0;
   display: flex; /* Align items in a single row */
-  justify-content: center; /* Center the list items horizontally */
-  align-items: end;
+  justify-content: center; /* Center the items horizontally */
+  align-items: flex-end; /* Align items at the bottom of the container */
   flex-wrap: wrap; /* Allow items to wrap if the screen is too narrow */
-  padding: 0;
-  list-style-type: none; /* Remove default bullet points */
-  gap: 10px; /* Space between each technology */
-  
+  padding-top: 30px; /* Remove default padding */
+  gap: 8px; /* Space between each technology */
 }
+
 
 /* Each individual technology item */
 .technology-item {

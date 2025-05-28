@@ -7,6 +7,7 @@
     width: 100vw;
     height: auto;
     padding: 10px 20%;
+    padding-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,6 +17,7 @@
     display: flex;
     align-items: center;
     padding: 10px 5%;
+    animation: slideInTop 1s forwards;;
 }
 
 .title-project {
@@ -53,6 +55,7 @@
     color: aliceblue;
     align-items: center; /* Center the cards vertically */
     justify-content: center; /* Center the cards horizontally */
+    animation: appear 1.3s forwards;
 }
 
 .flex-grid-thirds {
@@ -83,6 +86,7 @@
     border-radius: 10px;
     text-align: center;
     width: 100%; /* Make card take up the full width of the column */
+    
 }
 
 .card:hover {
@@ -96,8 +100,8 @@
     transform: translateZ(75px); /* Maintain the 3D effect */
 }
 .skill-wrap{
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 @media (max-width: 768px) {

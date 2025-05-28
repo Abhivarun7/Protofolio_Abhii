@@ -6,10 +6,12 @@
     justify-content: space-between;
     padding: 10px 7%;
     background: transparent;
+    animation: slideInTop 1.3s forwards; 
 }
 .nav-logo {
-    width: 90px;
+    width: 100px;
     cursor: pointer;
+    padding-top: 5px;
 }
 
 ul {
@@ -31,7 +33,7 @@ ul a {
     text-align: left; /* Ensure text is left-aligned */
 }
 ul a:hover {
-    color: #36d4f0;
+    color: #00ffff;
 }
 
 .nav-menu, .nav-close {
@@ -54,7 +56,7 @@ ul a:hover {
         position: absolute;
         top: 72px;
         right: 10px;
-        background: linear-gradient(#0b0c10 30%,#f5f5dc 95%);
+        background: linear-gradient(#0b0c10 );
         padding: auto;
         width: 30%;
         height: auto;
@@ -82,7 +84,7 @@ ul a:hover {
         display: none;
         font-size: 24px;
         background: none;
-        color: cyan;
+        color: #00ffff;
         margin-left: auto;
     }
 
@@ -111,7 +113,7 @@ ul a:hover {
         position: absolute;
         top: 72px;
         right: 10px;
-        background: linear-gradient(#0b0c10 30%,#f5f5dc 95%);
+        background: linear-gradient(#0b0c10);
         padding: 0px;
         width: 20%;
         height: auto;
@@ -130,8 +132,20 @@ ul a:hover {
         margin: 5px auto; /* Adjust margin for uniform spacing */
         font-size: 10px;
         cursor: pointer;
-        color: aliceblue;
+        color: cyan;
         text-decoration: none;
         text-align: left; /* Ensure text is left-aligned */
     }
 }
+
+@keyframes slideInTop {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

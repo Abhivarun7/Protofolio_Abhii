@@ -1,7 +1,6 @@
-// Card.jsx
 import React, { useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
-import "./c.css"; // Make sure to import your styles
+import "./c.css"; 
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
@@ -54,12 +53,13 @@ const Card = ({ project }) => {
           
           {/* Technologies List */}
           {Array.isArray(project.technologies) && (
-            <ul className="technologies-list">
+            <div className="technologies-list">
               {project.technologies.map((tech, index) => (
-                <li key={index} className="technology-item">{tech}</li>
+                <div key={index} className="technology-item">{tech}</div>
               ))}
-            </ul>
+            </div>
           )}
+
         </div>
       </motion.article>
 

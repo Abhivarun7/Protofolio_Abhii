@@ -1,131 +1,141 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './contact.css';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
-import ReCAPTCHA from 'react-google-recaptcha';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
+import SlideInNotifications from './SlideNotofication';
+import DownloadButton from "./DownloadButton"; 
 
 const Contact = () => {
-  const [input, setInput] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [captcha, setCaptcha] = useState(null);
-  const [error, setError] = useState({
-    email: false,
-    required: false,
-  });
+  const form = useRef();
+  const [input, setInput] = useState({ name: '', email: '', message: '' });
+  const [notifications, setNotifications] = useState([]);
 
-  const handleSendMail = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    if (!captcha) {
-      alert('Please complete the captcha!');
-      return;
-    }
-
+    // Validate input fields
     if (!input.email || !input.message || !input.name) {
-      setError({ ...error, required: true });
-      return;
-    } else if (error.email) {
+      addNotification("Please fill in all fields!", "error");
       return;
     }
 
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', input, 'YOUR_PUBLIC_KEY')
-      .then((response) => {
-        alert('Message sent successfully!');
-        setInput({ name: '', email: '', message: '' });
-        setCaptcha(null);
-      })
-      .catch((error) => {
-        alert('Failed to send message. Please try again later.');
-      });
+    // Sending email using EmailJS
+    emailjs
+      .sendForm(
+        'service_wb29vek',
+        'template_ej4ltb7',
+        form.current,
+        '9IDhRQSCJZ9Cd3fFV'
+      )
+      .then(
+        () => {
+          addNotification("Message sent successfully!", "success");
+          // Resetting input fields after successful send
+          setInput({ name: '', email: '', message: '' });
+        },
+        (error) => {
+          addNotification("Message failed to send.", "error");
+        }
+      );
+  };
+
+  // Function to add notifications
+  const addNotification = (text, type) => {
+    const id = Math.random();
+    setNotifications((prev) => [...prev, { id, text, type }]);
+    setTimeout(() => {
+      setNotifications((prev) => prev.filter((notif) => notif.id !== id));
+    }, 3000); // Auto-remove after 3 seconds
   };
 
   return (
-    <div className="contact-main">
-      <div className="contact-left">
-        <h2>Contact With Me</h2>
+    <>
+      <div className="contact-main">
+        <SlideInNotifications notifications={notifications} />
+        <div className="contact-left">
+          <div className='contact-left-main'>
+            <h2>Contact</h2>
 
-        <form className="contact-form">
-          <label>Your Name:</label>
-          <input 
-            type="text" 
-            name="name" 
-            placeholder="Enter your name" 
-            value={input.name}
-            onChange={(e) => setInput({ ...input, name: e.target.value })}
-            required 
-          />
+            <form className="contact-form" ref={form} onSubmit={sendEmail}>
+              <label>Your Name:</label>
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Enter your name"
+                value={input.name}
+                onChange={(e) => setInput({ ...input, name: e.target.value })}
+                required
+              />
 
-          <label>Your Email:</label>
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Enter your email" 
-            value={input.email}
-            onChange={(e) => setInput({ ...input, email: e.target.value })}
-            required 
-          />
-          {error.required && !input.email && <span className="error">Please provide a valid email!</span>}
+              <label>Your Email:</label>
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Enter your email"
+                value={input.email}
+                onChange={(e) => setInput({ ...input, email: e.target.value })}
+                required
+              />
 
-          <label>Your Message:</label>
-          <textarea 
-            name="message" 
-            placeholder="Enter your message" 
-            value={input.message}
-            onChange={(e) => setInput({ ...input, message: e.target.value })}
-            required
-          ></textarea>
-          {error.required && !input.message && <span className="error">Message is required!</span>}
+              <label>Your Message:</label>
+              <textarea
+                name="message"
+                placeholder="Enter your message"
+                value={input.message}
+                onChange={(e) => setInput({ ...input, message: e.target.value })}
+                required
+              ></textarea>
 
-          <div className="recaptcha-wrap">
-            <ReCAPTCHA
-              sitekey="YOUR_RECAPTCHA_SITE_KEY"
-              onChange={(code) => setCaptcha(code)}
-            />
+              <button type="submit">
+                Send Message <FaEnvelope className="icon" />
+              </button>
+            </form>
           </div>
+        </div>
 
-          <button type="submit" onClick={handleSendMail}>
-            Send Message <FaEnvelope />
-          </button>
-        </form>
-      </div>
-
-      <div className="contact-right">
-        <div className='contact-bottom'>
-          <div className="contact-info">
+        <div className="contact-right">
+          <div className='contact-bottom-up'>
             <div className="info-item">
-              <FaEnvelope className="icon" />
-              <p>abusaid7388@gmail.com</p>
-            </div>
-            <div className="info-item">
-              <FaPhone className="icon" />
-              <p>+8801608797655</p>
-            </div>
-            <div className="info-item">
-              <FaMapMarkerAlt className="icon" />
-              <p>Middle Badda, Dhaka, Bangladesh - 1212</p>
-            </div>
+                <div className="download-matter">
+                  <p>Download my Resume</p>
+                  <DownloadButton />
+                </div>
+            </div>      
           </div>
+          <div className="contact-bottom-down">
+            <div className="contact-info">
+              
+              <div className="info-item">
+                <FaEnvelope className="icon" />
+                <p>varun8374041@gmail.com</p>
+              </div>
+              <div className="info-item">
+                <FaPhone className="icon" />
+                <p>7093353332</p>
+              </div>
+              <div className="info-item">
+                <FaMapMarkerAlt className="icon" />
+                <p>Tannuku, Andhra Pradesh, India</p>
+              </div>
+            </div>
 
-          <div className="social-media-wrap">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-              <FaGithub />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FaTwitter />
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FaFacebook />
-            </a>
+            <div className="social-media-wrap">
+              <a href="https://github.com/Abhivarun7" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <FaGithub />
+              </a>
+              <a href="https://www.linkedin.com/in/abhi-ram-3b9251279?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BLxWYvK8VTWKf3bcKs%2B6PvA%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
+              <a href="https://www.instagram.com/_bhi.v_run?igsh=ZWg3N3Q5bjJpNGNx" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      
+    </>
   );
 };
 

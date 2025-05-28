@@ -10,12 +10,15 @@ import JavaScript from "../data/JavaScript.png";
 import Android from "../data/Android.svg";
 import Css from "../data/CSS.png";
 import Html from "../data/HTML.png";
-
+import Cravecure from "../data/CraveCure.png";
+import Mongo from "../data/Mongo.png";
 
 const personalInfo = {
-  greeting: "Hello, welcome to my website!",
+  greeting: "Hello, welcome to my Protofolio!",
   intro: "I am a software developer.",
-  description: "I specialize in full-stack development.",
+  description1: "specialized in Front-End development.",
+  description2: "specialized in Android development.",
+  description3: "specialized in Machine Learning.",
   message: "Feel free to explore my projects.",
   contact: "Contact me for more information."
 };
@@ -96,6 +99,13 @@ const projects = [
     image: Gym,
     technologies: ["HTML", "CSS", "Java Script", "MySQL"], // Make sure this is an array
     url:"https://www.linkedin.com/posts/abhi-ram-3b9251279_html-css-javascript-activity-7069574199547219968-R1nd?utm_source=share&utm_medium=member_desktop",
+  },
+  {
+    name: "Food Ordering Website",
+    description: "An e-commerce platform offering a seamless shopping experience with modern UI and efficient backend integration.",
+    image: Cravecure,
+    technologies: ["React", "Node.js", "Express.js", "Mongodb"], // Make sure this is an array
+    url:"https://cravecure.netlify.app",
   },
 ];
 export { personalInfo, skills, projects };

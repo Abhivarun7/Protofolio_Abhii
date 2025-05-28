@@ -6,10 +6,7 @@ import Projects from "./components/Projects/Work"
 import Contact from "./components/Contact/Contact"
 
 function App() {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    projectsSection.scrollIntoView({ behavior: 'smooth' });
-  };
+  
   return (
     <>
       <section className='container' id='introduction'>
@@ -19,9 +16,6 @@ function App() {
           <div className='model'>
             <Comp />
           </div>
-          <div className='projects-button'>
-            <button className="custom-button" onClick={scrollToProjects}>View my work</button>
-        </div>
         </div> 
       </section>
       <section className='projects' id='projects'>
@@ -29,6 +23,11 @@ function App() {
       </section>
       <section className='contact' id='contact'>
         <Contact />
+        <div className='footer'>
+          <p>This site was developed using React</p>
+          
+        </div>
+
       </section>
     </>
   )
