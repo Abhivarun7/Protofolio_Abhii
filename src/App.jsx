@@ -4,6 +4,7 @@ import "../src/App.css"
 import Comp from "../src/assets/model/Comp"
 import Projects from "./components/Projects/Work"
 import Contact from "./components/Contact/Contact"
+import Education from "./components/Education/Education"
 
 function App() {
   
@@ -21,13 +22,14 @@ function App() {
       <section className='projects' id='projects'>
         <Projects />
       </section>
+      <section className='education' id='education'>
+        <Education />
+      </section>
       <section className='contact' id='contact'>
         <Contact />
         <div className='footer'>
           <p>This site was developed using React</p>
-          
         </div>
-
       </section>
     </>
   )

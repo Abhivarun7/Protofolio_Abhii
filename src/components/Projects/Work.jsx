@@ -1,7 +1,7 @@
 import React from "react";
 import "../Projects/work.css";
 import { projects } from "../data/constant";
-import Card from "./Card"; 
+import Card from "./ThreedCard"; 
 import Skills from "../skills/Capabilities"
 
 const Work = () => {

@@ -32,6 +32,12 @@
   background: #0b0c10;
 }
 
+.education {
+  width: 100vw;
+  min-height: 100vh;
+  background: #0b0c10;
+}
+
 .model-container {
   position: absolute;
   top: 0;
